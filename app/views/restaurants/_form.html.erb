@@ -1,0 +1,26 @@
+<%= simple_form_for(@restaurant, html: {class: 'form-horizontal'}) do |f| %>
+   <%= f.input :name, label: 'Restaurant name', placeholder: 'give meee name'%>
+   <%= f.input :food_quality, label: 'Food quality' %>
+   <%= f.input :ambience %>
+    <%= f.input :service %>
+    <%= f.button :submit, label: 'Create Review' %>
+  <% end %>
+<label class="radio"><span class="icon"></span><span class="icon-to-fade"></span>
+  <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1">
+  Radio is off
+</label>
+
+
+<!-- =====================================================
+<% if @restaurant.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@restaurant.errors.count, "error") %> prohibited this restaurant from being saved:</h2>
+
+      <ul>
+      <% @restaurant.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+====================== -->

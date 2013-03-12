@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  food_quality: false
+  service: false
+  ambience: false
+
+two:
+  name: MyString
+  food_quality: false
+  service: false
+  ambience: false

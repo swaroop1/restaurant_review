@@ -1,0 +1,27 @@
+<h1>Listing restaurants</h1>
+
+<table class="table table-striped">
+  <tr>
+    <th>Name</th>
+    <th>Food quality</th>
+    <th>Service</th>
+    <th>Ambience</th>
+    <th></th>
+  </tr>
+
+<% @restaurants.each do |restaurant| %>
+  <tr>
+    <td><%= restaurant.name %></td>
+    <td><%= restaurant.food_quality %></td>
+    <td><%= restaurant.service %></td>
+    <td><%= restaurant.ambience %></td>
+    <td><%= link_to 'Show', restaurant, class: "btn  btn-primary" %>
+    <%= link_to 'Edit', edit_restaurant_path(restaurant), class:  "btn  btn-primary"%>
+    <%= link_to 'Destroy', restaurant, method: :delete, data: { confirm: 'Are you sure?' } , class: "btn  btn-danger"%></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Restaurant', new_restaurant_path %>
