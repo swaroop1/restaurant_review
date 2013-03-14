@@ -24,6 +24,8 @@ gem 'jquery-rails'
 
 gem 'simple_form'
 
+gem 'httparty'
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
@@ -38,3 +40,13 @@ gem 'simple_form'
 
 # To use debugger
 # gem 'debugger'
+
+
+# gems for better error display
+
+group :development do
+
+	gem 'better_errors'
+	gem 'binding_of_caller'
+	gem 'meta_request'
+end	

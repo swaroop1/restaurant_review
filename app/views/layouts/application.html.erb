@@ -5,6 +5,34 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <script type="text/javascript">
+(function() {
+    if (typeof window.janrain !== 'object') window.janrain = {};
+    if (typeof window.janrain.settings !== 'object') window.janrain.settings = {};
+    
+    janrain.settings.tokenUrl = 'http://localhost:3000/authentication/initiate_response';
+
+    function isReady() { janrain.ready = true; };
+    if (document.addEventListener) {
+      document.addEventListener("DOMContentLoaded", isReady, false);
+    } else {
+      window.attachEvent('onload', isReady);
+    }
+
+    var e = document.createElement('script');
+    e.type = 'text/javascript';
+    e.id = 'janrainAuthWidget';
+
+    if (document.location.protocol === 'https:') {
+      e.src = 'https://rpxnow.com/js/lib/hamarighar/engage.js';
+    } else {
+      e.src = 'http://widget-cdn.rpxnow.com/js/lib/hamarighar/engage.js';
+    }
+
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(e, s);
+})();
+</script>
 </head>
 <body>
 <div class="navbar navbar-inverse navbar-fixed-top">
@@ -60,8 +88,8 @@
           <%= yield %>
       </div>
      <div class="span3">
-          <h2>About Us</h2>
-          <p>We review restaurant all over india , it's by U, for U about restaurants</p>
+          <h2>Login</h2>
+          <div id="janrainEngageEmbed"></div>
      </div>
    </div>
 </div>
