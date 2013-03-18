@@ -16,14 +16,11 @@ class AuthenticationController < ApplicationController
       providerName: identity_provider, identifier: identifier_value, verifiedEmail: user_info.fetch("profile").fetch("verifiedEmail"),
       prefferedUserName: user_info.fetch("profile").fetch("preferredUsername"), displayName: user_info.fetch("profile").fetch("displayName"),
       status: true, mobileNumber: nil)
+     user_loggedin.add_role :author
      session[:current_user_id] = user_loggedin.id # saving id in session  
      respond_to do |format|
          format.html {redirect_to restaurants_path}
      end 
-  end
-
-  def current_user
-    @_currentuser ||= session[:current_user_id]
   end
 
   def logout

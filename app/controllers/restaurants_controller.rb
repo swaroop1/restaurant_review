@@ -40,10 +40,12 @@ class RestaurantsController < ApplicationController
   # POST /restaurants
   # POST /restaurants.json
   def create
-    @restaurant = Restaurant.new(params[:restaurant])
-
+    #@restaurant = Restaurant.new(params[:restaurant])
+    present_logged_user = logged_in_user
+    @restaurant = present_logged_user.restaurants.build(params[:restaurant])
+    present_logged_user.add_role :author
     respond_to do |format|
-      if @restaurant.save
+      if present_logged_user.save
         format.html { redirect_to @restaurant, notice: 'Restaurant was successfully created.' }
         format.json { render json: @restaurant, status: :created, location: @restaurant }
       else
@@ -56,8 +58,9 @@ class RestaurantsController < ApplicationController
   # PUT /restaurants/1
   # PUT /restaurants/1.json
   def update
-    @restaurant = Restaurant.find(params[:id])
-
+    #@restaurant = Restaurant.find(params[:id])
+    present_logged_user = logged_in_user
+     @restaurant = present_logged_user.restaurants.find(params[:id])
     respond_to do |format|
       if @restaurant.update_attributes(params[:restaurant])
         format.html { redirect_to @restaurant, notice: 'Restaurant was successfully updated.' }

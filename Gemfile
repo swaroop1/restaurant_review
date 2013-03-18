@@ -26,6 +26,12 @@ gem 'simple_form'
 
 gem 'httparty'
 
+gem 'rolify'
+
+gem 'rb-readline'
+
+gem 'cancan'
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
